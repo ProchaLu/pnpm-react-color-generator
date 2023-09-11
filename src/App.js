@@ -1,42 +1,56 @@
-import './Styles.css';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
 
 export default function App() {
-  const [color, setColor] = useState(randomColor());
+  const [color, setColor] = useState('#00ccf0');
+
   return (
-    <div>
-      <div>
-        <h1>Random Color Generator</h1>
-      </div>
+    <div
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        margin: 0,
+      }}
+    >
       <div
         style={{
-          justifyContent: 'center',
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: color,
-          borderRadius: 10,
-          width: 800,
-          height: 500,
-          transition: 'background-color 0.5s ease in ease out',
+          padding: 100,
         }}
       >
-        Generated Color: {color}
+        <h1
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Random Color Generator
+        </h1>
+      </div>
+      <br />
+      <div
+        style={{
+          backgroundColor: color,
+          textAlign: 'center',
+        }}
+      >
+        <h1>ColorHex: {color}</h1>
       </div>
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: 10,
+          textAlign: 'center',
         }}
       >
         <button
+          style={{
+            padding: 10,
+            fontSize: 18,
+          }}
           onClick={() => {
-            setColor(randomColor());
+            const newHex = randomColor();
+            setColor(newHex);
           }}
         >
-          Generate
+          Generate New ColorHex
         </button>
       </div>
     </div>
